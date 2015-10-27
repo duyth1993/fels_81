@@ -11,6 +11,14 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def admin_user
+    redirect_to root_url unless current_user.admin?
+  end
+
+  def object_exist? class_name, id
+    !(id.nil? || class_name.find_by(id: id).nil?)
+  end
+
   private
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale

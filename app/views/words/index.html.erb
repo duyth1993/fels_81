@@ -3,11 +3,13 @@
   <div class="col-md-offset-3 col-md-7">
     <div class="row">
       <h5><%= t "word.category_title" %></h5>
+
       <%= form_for words_path, method: :get do |f| %>
         <%= select_tag :category_id,
           options_from_collection_for_select(@categories, :id, :name,
-            params[:category_id]),
+          params[:category_id]),
           include_blank: t("word.all"), class: "col-md-3" %>
+
         <% Settings.option.each do |word_option| %>
           <div class="col-md-2">
             <%= radio_button_tag :option, word_option,

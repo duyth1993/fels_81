@@ -27,6 +27,11 @@ en:
   has: "has"
   words: "words"
   category_learned: "You've finished this category "
+  login_require: "Please log in."
+  import_words: "Import words"
+  import_title: "Import words"
+  import_success: "Import words successfully!"
+  import_fail: "Import words fail!"
   layouts:
     header:
       website: "Framgia eLearning"
@@ -39,6 +44,7 @@ en:
       account: "Account"
       title: "Fels"
       team: "Team 3"
+      word_manage: "Words Import"
     footer:
       about: "About"
       contact: "Contact"
