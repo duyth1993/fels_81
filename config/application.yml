@@ -1,0 +1,19 @@
+defaults: &defaults
+  all_words: "all_words"
+  option:
+    - all_words
+    - learned
+    - not_learn
+  pagination:
+    categories_per_page: 10
+    words_per_page: 120
+  lesson:
+    words_per_lesson: 5
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
