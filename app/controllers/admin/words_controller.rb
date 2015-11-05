@@ -3,6 +3,11 @@ class Admin::WordsController < ApplicationController
   before_action :load_categories, only: [:new, :create]
   before_action :find_word, only: :destroy
 
+  def index
+    @words = Word.paginate page: params[:page],
+      per_page: Settings.pagination.words_per_page
+  end
+
   def new
     @word = Word.new
     Settings.word.answers_per_word.times{@word.answers.new}
@@ -10,6 +15,7 @@ class Admin::WordsController < ApplicationController
 
   def create
     @word = Word.new word_params
+    @word.category_id = params[:category]
     if @word.save
       flash[:success] = t "admin.word.add.success"
       redirect_to new_admin_word_path
@@ -25,7 +31,7 @@ class Admin::WordsController < ApplicationController
     else
       flash[:danger] = t "admin.word.delete.fail"
     end
-    redirect_to words_path
+    redirect_to admin_category_path(@word.category)
   end
 
   private
@@ -34,7 +40,7 @@ class Admin::WordsController < ApplicationController
   end
 
   def word_params
-    params.require(:word).permit :category_id, :content,
+    params.require(:word).permit :category, :content,
       answers_attributes: [:content, :correct, :_destroy]
   end
 

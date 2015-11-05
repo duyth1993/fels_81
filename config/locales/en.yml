@@ -113,6 +113,7 @@ en:
         title: "Dashboard"
         welcome: "Welcome admin"
     word:
+      all_title: "All words"
       title: "Word management"
       add_title: "Add new word"
       btn_add: "Save changes"
@@ -134,6 +135,8 @@ en:
       word: "word"
       add_title: "Add new category"
       all_title: "All categories"
+      add_word:
+        btn: "Add word"
       add:
         btn: "Add new"
         title: "ADD NEW CATEGORY"

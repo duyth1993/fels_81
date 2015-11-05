@@ -7,6 +7,9 @@ class Admin::CategoriesController < ApplicationController
       per_page: Settings.pagination.categories_per_page
   end
 
+  def show
+  end
+
   def new
     @category = Category.new
   end

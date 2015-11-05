@@ -5,9 +5,9 @@
     <h1><%= t "admin.word.add_title" %></h1>
     <%= form_for @word, url: admin_words_path do |f| %>
       <%= render "shared/error_messages", object: f.object %>
-      <%= select_tag :category_id,
+      <%= select_tag :category,
         options_from_collection_for_select(@categories, :id, :name,
-        params[:category_id]), class: "form-control" %>
+        params[:category]), class: "form-control" %>
       <%= f.label :content %>
       <%= f.text_field :content, class: "form-control" %>
       <div id="answers">
@@ -23,7 +23,7 @@
           "#answers" %>
         <%= new_fields_template f, :answers %>
       </div>
-
+      <br/>
       <%= f.submit t("admin.word.btn_add"), class: "btn btn-primary",
         id: "btn_word" %>
     <% end %>
