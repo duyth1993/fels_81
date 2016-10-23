@@ -33,6 +33,10 @@ class Admin::WordsController < ApplicationController
     redirect_to admin_category_path @word.category
   end
 
+  def destroy_multiple
+
+  end
+
   private
   def load_categories
     @categories = Category.all

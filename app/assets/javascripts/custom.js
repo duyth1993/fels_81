@@ -39,4 +39,8 @@ $(function(){
       .replace(regexp, new_id));
     return false;
   });
+
+  $(document).on("change", "#schedule_start_time", function(){
+    console.log("test");
+  });
 });

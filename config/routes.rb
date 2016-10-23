@@ -9,7 +9,11 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root "dashboard#home"
-    resources :words
+    resources :words do
+      collection do
+        delete :destroy_multiple
+      end
+    end
     resources :categories
     resources :users
   end
